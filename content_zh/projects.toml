@@ -1,0 +1,15 @@
+type = "card"
+title = "项目"
+description = "部分软件工程与研究项目。"
+
+[[items]]
+title = "医疗数据处理与研究 API"
+subtitle = "Python、FastAPI、PostgreSQL、Redis"
+date = "2025"
+content = "为大规模医疗行政数据构建后端数据处理与查询系统。"
+
+[[items]]
+title = "ProtoHGC"
+subtitle = "图机器学习"
+date = "2025"
+content = "开发用于交易欺诈检测的异构图对比学习框架。"

@@ -1,0 +1,15 @@
+type = "card"
+title = "Projects"
+description = "Selected software and research projects."
+
+[[items]]
+title = "Healthcare Data Processing & Research API"
+subtitle = "Python, FastAPI, PostgreSQL, Redis"
+date = "2025"
+content = "Built a backend data-processing system for large-scale healthcare administrative datasets."
+
+[[items]]
+title = "ProtoHGC"
+subtitle = "Graph Machine Learning"
+date = "2025"
+content = "Developed a heterogeneous graph contrastive learning framework for transaction fraud detection."

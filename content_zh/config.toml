@@ -29,12 +29,11 @@ target = "publications"
 href = "/publications"
 
 
-
 [[navigation]]
-title = "生活"
+title = "项目"
 type = "page"
-target = "life"
-href = "/life"
+target = "projects"
+href = "/projects"
 
 [[navigation]]
 title = "动态"
