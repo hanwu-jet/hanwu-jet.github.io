@@ -1,13 +1,14 @@
 type = "news"
 title = "动态"
-description = "记录我的研究、工作与学习近况。"
+description = "记录我的研究、工作与学习近况"
 
+[[news]]
+date = "2026-07"
+content = "我们的论文被《研究与用户服务季刊》（RUSQ）接收了。🎉"
 
 
 [[news]]
 date = "2026-03"
 content = "很开心与大家分享我收到了密歇根大学安娜堡分校工学院的计算机硕士项目录取！"
 
-[[news]]
-date = "2025-12"
-content = "我们的论文被《研究与用户服务季刊》（RUSQ）接收了。🎉"
+

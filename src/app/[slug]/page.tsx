@@ -62,6 +62,7 @@ export async function generateStaticParams() {
   return [
     { slug: 'publications' },
     { slug: 'projects' },
+    { slug: 'experience' },
     { slug: 'news' },
   ];
 }

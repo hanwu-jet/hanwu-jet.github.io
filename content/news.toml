@@ -1,15 +1,19 @@
 type = "news"
 title = "News"
-description = "Recent updates on my research, work, and academic journey."
+description = "Recent updates on my research, work, and academic journey"
+
+
+[[news]]
+date = "2026-07"
+content = "Our paper has been accepted into the Research and User Services Quarterly (RUSQ) journal!"
+#image = "/images/news/news-media.jpg"
+
 
 [[news]]
 date = "2026-03"
 content = "I am delighted to share that I have been admitted to the Master's program in Computer Science at the University of Michigan, Ann Arbor, College of Engineering."
 
-[[news]]
-date = "2025-12"
-content = "Our paper has been accepted into the Research and User Services Quarterly (RUSQ) journal!"
-#image = "/images/news/news-media.jpg"
+
 
 
 #以下为模板：
