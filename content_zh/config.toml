@@ -16,10 +16,19 @@ target = "about"
 href = "/"
 
 [[navigation]]
+title = "经历"
+type = "page"
+target = "experience"
+href = "/experience"
+
+
+[[navigation]]
 title = "发表"
 type = "page"
 target = "publications"
 href = "/publications"
+
+
 
 [[navigation]]
 title = "生活"
@@ -32,6 +41,7 @@ title = "动态"
 type = "page"
 target = "news"
 href = "/news"
+
 
 [[navigation]]
 title = "简历"

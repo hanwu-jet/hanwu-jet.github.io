@@ -15,13 +15,13 @@ export interface TextPageConfig extends BasePageConfig {
 }
 
 export interface CardItem {
-    title: string;
-    subtitle?: string;
-    date?: string;
-    content?: string;
-    tags?: string[];
-    link?: string;
-    image?: string;
+  title: string;
+  subtitle?: string;
+  date?: string;
+  content?: string;
+  tags?: string[];
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface CardPageConfig extends BasePageConfig {

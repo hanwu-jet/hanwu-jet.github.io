@@ -112,16 +112,15 @@ export default function Profile({ author, social, features, researchInterests }:
             className="sticky top-8"
         >
             {/* Profile Image */}
-            <div className="w-64 h-64 mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+            <div className="relative mx-auto mb-8 w-80 h-80 rounded-full overflow-hidden border-4 border-white/80 shadow-lg">
                 <Image
-                    src={author.avatar}
-                    alt={author.name}
-                    width={256}
-                    height={256}
-                    className="w-full h-full object-cover object-[32%_center]"
+                    src="/bio.jpg"
+                    alt="Han Wu"
+                    fill
+                    className="object-cover object-center"
                     priority
                 />
-            </div>
+                </div>
 
             {/* Name and Title */}
             <div className="text-center mb-6">

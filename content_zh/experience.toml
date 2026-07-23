@@ -1,0 +1,45 @@
+type = "card"
+title = "经历"
+description = "我的教育、工作与研究经历"
+
+[[items]]
+title = "计算机科学硕士"
+subtitle = "密歇根大学"
+date = "即将：2027"
+content = "安娜堡，美国"
+
+[[items]]
+title = "软件工程实习生"
+subtitle = "Anyura Inc."
+date = "2026年5月 – 至今"
+content = "桑尼维尔，美国"
+
+[[items]]
+title = "软件工程实习生"
+subtitle = "北京三快在线科技有限公司（美团）"
+date = "2025年5月 – 2025年8月"
+content = "北京，中国"
+
+[[items]]
+title = "研究助理"
+subtitle = "明尼苏达大学海勒-赫维茨经济学研究所"
+date = "2025年4月 – 2025年10月"
+content = "明尼阿波利斯，美国"
+
+[[items]]
+title = "研究助理"
+subtitle = "明尼苏达大学图书馆"
+date = "2025年3月 – 2025年7月"
+content = "明尼阿波利斯，美国"
+
+[[items]]
+title = "计算机科学学士，辅修经济学"
+subtitle = "明尼苏达大学"
+date = "2024年8月 – 2026年12月"
+content = "明尼阿波利斯，美国"
+
+[[items]]
+title = "自动化与数据处理实习生"
+subtitle = "中国银行郑州自贸区分行"
+date = "2023年5月 – 2023年8月"
+content = "郑州，中国"
