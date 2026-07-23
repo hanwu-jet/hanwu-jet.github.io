@@ -116,7 +116,7 @@ const zh: LocaleMessages = {
   profile: {
     email: '邮箱',
     location: '地址',
-    workAddress: '办公地址',
+    workAddress: '目前地址',
     click: '点击',
     googleMap: '谷歌地图',
     send: '发送',

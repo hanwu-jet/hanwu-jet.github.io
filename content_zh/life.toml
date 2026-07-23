@@ -1,6 +1,6 @@
 type = "card"
-title = "奖项"
-description = "我获得的荣誉与奖项。"
+title = "我的生活"
+description = "我的珍藏瞬间"
 
 [[items]]
 title = "示例奖项"

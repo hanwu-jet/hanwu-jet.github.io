@@ -54,6 +54,10 @@ export default function Navigation({
     return siteTitleByLocale?.[resolvedLocale] || siteTitleByLocale?.[i18n.defaultLocale] || siteTitle;
   }, [i18n.defaultLocale, resolvedLocale, siteTitle, siteTitleByLocale]);
 
+  const isDownloadItem = useCallback((href: string) => {
+    return href.toLowerCase().split('?')[0].endsWith('.pdf');
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -84,8 +88,12 @@ export default function Navigation({
         });
 
         const firstVisible = effectiveItems.find(
-          (item) => item.type === 'page' && visibleSections.current.has(item.target)
+          (item) =>
+            item.type === 'page' &&
+            !isDownloadItem(item.href) &&
+            visibleSections.current.has(item.target)
         );
+
         if (firstVisible) {
           setActiveHash(firstVisible.target === 'about' ? '' : `#${firstVisible.target}`);
         }
@@ -100,7 +108,7 @@ export default function Navigation({
       const observer = new IntersectionObserver(observerCallback, observerOptions);
 
       effectiveItems.forEach((item) => {
-        if (item.type === 'page') {
+        if (item.type === 'page' && !isDownloadItem(item.href)) {
           const element = document.getElementById(item.target);
           if (element) observer.observe(element);
         }
@@ -111,17 +119,22 @@ export default function Navigation({
         observer.disconnect();
       };
     }
-  }, [enableOnePageMode, effectiveItems]);
+  }, [enableOnePageMode, effectiveItems, isDownloadItem]);
 
-  const isDesktopItemActive = (item: SiteConfig['navigation'][number]) =>
-    enableOnePageMode
+  const isDesktopItemActive = (item: SiteConfig['navigation'][number]) => {
+    if (isDownloadItem(item.href)) return false;
+
+    return enableOnePageMode
       ? activeHash === `#${item.target}` || (!activeHash && item.target === 'about')
-      : (item.href === '/'
+      : item.href === '/'
         ? pathname === '/'
-        : pathname.startsWith(item.href));
+        : pathname.startsWith(item.href);
+  };
 
-  const getDesktopItemHref = (item: SiteConfig['navigation'][number]) =>
-    enableOnePageMode ? `/#${item.target}` : item.href;
+  const getDesktopItemHref = (item: SiteConfig['navigation'][number]) => {
+    if (isDownloadItem(item.href)) return item.href;
+    return enableOnePageMode ? `/#${item.target}` : item.href;
+  };
 
   const activeItem = effectiveItems.find((item) => isDesktopItemActive(item)) ?? null;
   const activeHref = activeItem ? getDesktopItemHref(activeItem) : null;
@@ -133,13 +146,16 @@ export default function Navigation({
       setIndicatorStyle(null);
       return;
     }
+
     const el = container.querySelector<HTMLElement>(
       `[data-nav-href="${CSS.escape(indicatorHref)}"]`
     );
+
     if (!el) {
       setIndicatorStyle(null);
       return;
     }
+
     setIndicatorStyle({
       left: el.offsetLeft,
       width: el.offsetWidth,
@@ -216,9 +232,35 @@ export default function Navigation({
                           }}
                         />
                       )}
+
                       {effectiveItems.map((item) => {
                         const isActive = isDesktopItemActive(item);
                         const href = getDesktopItemHref(item);
+                        const downloadItem = isDownloadItem(item.href);
+
+                        const className = cn(
+                          'relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-150',
+                          isActive
+                            ? 'text-primary'
+                            : hoveredHref === href
+                              ? 'text-primary'
+                              : 'text-neutral-600'
+                        );
+
+                        if (downloadItem) {
+                          return (
+                            <a
+                              key={item.target}
+                              href={href}
+                              download
+                              data-nav-href={href}
+                              onMouseEnter={() => setHoveredHref(href)}
+                              className={className}
+                            >
+                              {item.title}
+                            </a>
+                          );
+                        }
 
                         return (
                           <Link
@@ -226,22 +268,18 @@ export default function Navigation({
                             href={href}
                             data-nav-href={href}
                             prefetch={true}
-                            onClick={() => enableOnePageMode && setActiveHash(`#${item.target}`)}
+                            onClick={() =>
+                              enableOnePageMode && setActiveHash(`#${item.target}`)
+                            }
                             onMouseEnter={() => setHoveredHref(href)}
-                            className={cn(
-                              'relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-150',
-                              isActive
-                                ? 'text-primary'
-                                : hoveredHref === href
-                                  ? 'text-primary'
-                                  : 'text-neutral-600'
-                            )}
+                            className={className}
                           >
                             {item.title}
                           </Link>
                         );
                       })}
                     </div>
+
                     <LanguageToggle i18n={i18n} />
                     <ThemeToggle />
                   </div>
@@ -250,6 +288,7 @@ export default function Navigation({
                 <div className="lg:hidden flex items-center space-x-2">
                   <LanguageToggle i18n={i18n} />
                   <ThemeToggle />
+
                   <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 hover:text-primary hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-colors duration-200">
                     <span className="sr-only">{messages.navigation.openMainMenu}</span>
                     <motion.div
@@ -280,15 +319,32 @@ export default function Navigation({
                 >
                   <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     {effectiveItems.map((item, index) => {
-                      const isActive = enableOnePageMode
-                        ? (item.href === '/' ? pathname === '/' && !activeHash : activeHash === `#${item.target}`)
-                        : (item.href === '/'
-                          ? pathname === '/'
-                          : pathname.startsWith(item.href));
+                      const downloadItem = isDownloadItem(item.href);
 
-                      const href = enableOnePageMode
-                        ? (item.href === '/' ? '/' : `/#${item.target}`)
-                        : item.href;
+                      const isActive = downloadItem
+                        ? false
+                        : enableOnePageMode
+                          ? item.href === '/'
+                            ? pathname === '/' && !activeHash
+                            : activeHash === `#${item.target}`
+                          : item.href === '/'
+                            ? pathname === '/'
+                            : pathname.startsWith(item.href);
+
+                      const href = downloadItem
+                        ? item.href
+                        : enableOnePageMode
+                          ? item.href === '/'
+                            ? '/'
+                            : `/#${item.target}`
+                          : item.href;
+
+                      const className = cn(
+                        'block px-3 py-2 rounded-md text-base font-medium transition-all duration-200',
+                        isActive
+                          ? 'text-primary bg-accent/10 border-l-4 border-accent'
+                          : 'text-neutral-600 hover:text-primary hover:bg-neutral-50'
+                      );
 
                       return (
                         <motion.div
@@ -297,20 +353,29 @@ export default function Navigation({
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.1 }}
                         >
-                          <Disclosure.Button
-                            as={Link}
-                            href={href}
-                            prefetch={true}
-                            onClick={() => enableOnePageMode && setActiveHash(item.href === '/' ? '' : `#${item.target}`)}
-                            className={cn(
-                              'block px-3 py-2 rounded-md text-base font-medium transition-all duration-200',
-                              isActive
-                                ? 'text-primary bg-accent/10 border-l-4 border-accent'
-                                : 'text-neutral-600 hover:text-primary hover:bg-neutral-50'
-                            )}
-                          >
-                            {item.title}
-                          </Disclosure.Button>
+                          {downloadItem ? (
+                            <Disclosure.Button
+                              as="a"
+                              href={href}
+                              download
+                              className={className}
+                            >
+                              {item.title}
+                            </Disclosure.Button>
+                          ) : (
+                            <Disclosure.Button
+                              as={Link}
+                              href={href}
+                              prefetch={true}
+                              onClick={() =>
+                                enableOnePageMode &&
+                                setActiveHash(item.href === '/' ? '' : `#${item.target}`)
+                              }
+                              className={className}
+                            >
+                              {item.title}
+                            </Disclosure.Button>
+                          )}
                         </motion.div>
                       );
                     })}

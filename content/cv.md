@@ -4,7 +4,7 @@
 - Research focus: Mathematical Principles of Natural Philosophy
 - Supervisor: Prof. Advisor One and Dr. Advisor Two
 
-**The University of Example**, BSc in Natural Science, *2021 - 2025*
+**The University of Minnesota**, BSc in Computer Science, *2022 - 2026*
 - Graduated with First Class Honours
 
 ## Experience

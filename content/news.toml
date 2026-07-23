@@ -1,7 +1,19 @@
-[[news]]
-date = "2025-11"
-content = "Our work has been accepted by a prestigious journal 🎉"
+type = "news"
+title = "News"
+description = "Recent updates on my research, work, and academic journey."
 
 [[news]]
-date = "2025-09"
-content = "Starting my PhD at the University of Example"
+date = "2026-03"
+content = "I am delighted to share that I have been admitted to the Master's program in Computer Science at the University of Michigan, Ann Arbor, College of Engineering."
+
+[[news]]
+date = "2025-12"
+content = "Our paper has been accepted into the Research and User Services Quarterly (RUSQ) journal!"
+#image = "/images/news/news-media.jpg"
+
+
+#以下为模板：
+#[[news]]
+#date = "2026-01"
+#content = "Your update"
+# link = "https://example.com"  # 可选

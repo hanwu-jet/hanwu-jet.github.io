@@ -1,0 +1,27 @@
+type = "card"
+title = "Life"
+description = "My Cherished Moments"
+
+[[items]]
+title = "Example life"
+subtitle = "Organization"
+date = "2025"
+content = "Description of the life."
+
+[[items]]
+title = "Example life"
+subtitle = "Organization"
+date = "2024"
+content = "Description of the life."
+
+[[items]]
+title = "Example Life"
+subtitle = "Organization"
+date = "2023"
+content = "Description of the life."
+
+[[items]]
+title = "Example life"
+subtitle = "Organization"
+date = "2022"
+content = "Description of the life."
