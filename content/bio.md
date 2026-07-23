@@ -6,9 +6,9 @@ These experiences do not center on a single, narrow domain. For me, this diversi
 
 My current research interests include:
 
-Graph machine learning and representation learning,
-Multimodal generative AI,
-Human-computer interaction and human-centered AI,
-Machine learning systems for real-world problems.
+- **Graph machine learning and representation learning**
+- **Multimodal generative AI**
+- **Human-computer interaction and human-centered AI**
+- **Machine learning systems for real-world problems**
 
 I am continuing to explore my research path. I believe that the fundamental principle of scientific research is an insatiable thirst for the unknown. I aim to remain open-minded, constantly engage with new problems, and pursue the ideas that truly captivate me.
