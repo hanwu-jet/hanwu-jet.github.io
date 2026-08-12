@@ -1,4 +1,4 @@
-I am Han Wu. I am currently majoring in Computer Science with a minor in Economics and will soon begin a Master’s program in Computer Science at the University of Michigan.
+I am Han Wu. I am currently majoring in Computer Science with a minor in Economics.
 
 Over the past few years, I have engaged in research and engineering projects across a diverse range of fields, including medical data analysis, graph machine learning, transaction fraud detection, multimodal video generation, and human-computer interaction (HCI) with a focus on accessibility. My experience also encompasses software engineering roles involving front-end and back-end development, data processing pipelines, and AI systems.
 
