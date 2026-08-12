@@ -1,0 +1,45 @@
+type = "card"
+title = "Experience"
+description = "My Education, Work, and Research Experience"
+
+[[items]]
+title = "Master of Computer Science & Engineering"
+subtitle = "University of Michigan"
+date = "Incoming: Fall 2027"
+content = "Ann Arbor, USA"
+
+[[items]]
+title = "Software Engineering Intern"
+subtitle = "Anyura Inc."
+date = "May. 2026 – Now"
+content = "Sunnyvale, USA"
+
+[[items]]
+title = "Software Engineering Intern"
+subtitle = "Meituan"
+date = "May. - Aug. 2025"
+content = "Beijing, China"
+
+[[items]]
+title = "Research Assistant"
+subtitle = "Heller-Hurwicz Economics Institute, UMN"
+date = "Apr. - Oct. 2025"
+content = "Minneapolis, USA"
+
+[[items]]
+title = "Research Assistant"
+subtitle = "Walter Library, UMN"
+date = "Mar. - Jul. 2025"
+content = "Minneapolis, USA"
+
+[[items]]
+title = "B.A. in Computer Science, Minor in Economics"
+subtitle = "University of Minnesota"
+date = "Aug. 2024 - Dec. 2026"
+content = "Minneapolis, USA"
+
+[[items]]
+title = "Automation & Data Processing Intern"
+subtitle = "Bank of China, Zhengzhou Free Trade Zone Branch"
+date = "May. - Aug. 2023"
+content = "Zhengzhou, China"
