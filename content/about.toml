@@ -3,10 +3,12 @@ title = "About"
 
 [profile]
 research_interests = [
-  "Machine Learning",
+  "Information Science / Social Computing",
   "Human-Centered AI",
-  "Multimodal Generative AI",
-  "Human-Computer Interaction and Accessible AI Systems"
+  "Public Policy / Science and Technology Policy",
+  "Visual Analytics",
+  "Computational Social Science",
+  "Graph Machine Learning"
 ]
 
 [[sections]]
@@ -21,4 +23,3 @@ title = "About"
 # title = "Publications"
 # filter = "selected"
 # limit = 5
-
